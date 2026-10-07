@@ -8,40 +8,59 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <a href="">Home</a>
-        <a href="">Movies</a>
+    <header class="site-header">
+        <div class="logo-container">
+            <img src="./logo.png" alt="" >
+        </div>
+        <nav class="main-nav">
+            <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+            <ul class="mobile-menu-list">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#select-container">Movies</a></li>
+            </ul>
+        </nav>
     </header>
-    <section class="hero">
-
+    <section id="hero">
+        <h1>
+            My movie list
+        </h1>
+        <p>
+            Find your next movie!
+        </p>
     </section>
     <main>
-        <select name="" id="genre-filter"></select>
+        <div id="select-container">
+            <select name="" id="genre-filter">
+
+            </select>
+        </div>
+
         <div id="movie-container">
 
         </div>
 
         <div id="add-movie-container">
-            <form action="" id="add-movie-form">
-                <label for="name" ></label>
+            <form action="" id="add-movie-form" >
+                <h2>Add a movie</h2>
+                <label for="name" >Name</label>
                 <input type="text" name="name" placeholder="Name" required>
 
-                <label for="year"></label>
+                <label for="year">Year</label>
                 <input type="number" name="year" placeholder="Year" required>
 
-                <label for="rating"></label>
+                <label for="rating">Rating</label>
                 <input type="number" name="rating" placeholder="Rating" required>
 
-                <label for="genre"></label>
+                <label for="genre">Genre</label>
                 <input type="text" name="genre" placeholder="Genre" required>
 
-                <input type="submit" value="submit">
+                <button type="submit" class="btn">Add movie</button>
             </form>
         </div>
 
     </main>
     <footer>
-
+        &copy; 2026 My movie list
     </footer>
 </body>
 </html>

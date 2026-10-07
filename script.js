@@ -30,7 +30,7 @@ function createCard(movieList) {
         <p>Year: ${movie.year}</p>
         <p>Rating: ${movie.rating}</p>
         <p>Genre: ${movie.genre}</p>
-        <button class="remove-btn"> Remove </button>
+        <button class="btn remove-btn"> Remove </button>
         `;
 
         const removeBtn = card.querySelector(".remove-btn");
@@ -61,16 +61,6 @@ function addMovie(event) {
     form.reset();
 }
 
-
-
-
-const form = document.getElementById("add-movie-form");
-
-form.addEventListener("submit", addMovie);
-
-const genreFilter = document.getElementById("genre-filter");
-genreFilter.addEventListener("change", filterMovies);
-
 function rendergenreOptions() {
     const genres = [];
 
@@ -90,8 +80,6 @@ function rendergenreOptions() {
         option.textContent = genre;
         genreFilter.appendChild(option);
     });
-
-
 }
 
 function filterMovies() {
@@ -108,5 +96,41 @@ function filterMovies() {
 
     createCard(filteredMovies);
 }
+
+let mobileIcon = document.querySelector('.mobile-menu-toggle')
+let menuList = document.querySelector('.mobile-menu-list')
+
+mobileIcon.addEventListener('click', () => {
+    const isOpen = menuList.classList.toggle('active')
+
+    if (isOpen === true) {
+        mobileIcon.textContent = '✕';
+    } else if (isOpen === false) {
+        mobileIcon.textContent = '☰';
+    } else {
+        mobileIcon.textContent = 'Error'
+        throw new Error("Something went wrong");
+    }
+
+    mobileIcon.setAttribute('aria-expanded', isOpen)
+})
+
+const menuLinks = document.querySelectorAll('a')
+
+for (const link of menuLinks) {
+    link.addEventListener('click', () => {
+        menuList.classList.remove('active')
+        mobileIcon.textContent = '☰';
+        mobileIcon.setAttribute('aria-expanded', false)
+    })
+}
+
+const form = document.getElementById("add-movie-form");
+
+form.addEventListener("submit", addMovie);
+
+const genreFilter = document.getElementById("genre-filter");
+genreFilter.addEventListener("change", filterMovies);
+
 createCard(movies);
 rendergenreOptions();

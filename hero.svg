@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14101f"/>
+      <stop offset="1" stop-color="#05040a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.55">
+      <stop offset="0" stop-color="#e50914" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#e50914" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff4d6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#fff4d6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamR" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff4d6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#fff4d6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0.6" stop-color="#05040a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#05040a" stop-opacity="1"/>
+    </linearGradient>
+    <pattern id="holes" width="60" height="140" patternUnits="userSpaceOnUse">
+      <rect x="18" y="12" width="24" height="16" rx="3" fill="#05040a"/>
+      <rect x="18" y="112" width="24" height="16" rx="3" fill="#05040a"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="800" fill="url(#bg)"/>
+  <rect width="1920" height="800" fill="url(#glow)"/>
+
+  <!-- Spotlight beams -->
+  <polygon points="0,0 220,0 1100,800 500,800" fill="url(#beamL)"/>
+  <polygon points="1920,0 1700,0 820,800 1420,800" fill="url(#beamR)"/>
+
+  <!-- Stars -->
+  <g fill="#ffffff">
+    <circle cx="180" cy="120" r="2" opacity="0.7"/>
+    <circle cx="420" cy="70" r="1.5" opacity="0.5"/>
+    <circle cx="640" cy="160" r="2" opacity="0.6"/>
+    <circle cx="880" cy="60" r="1.5" opacity="0.5"/>
+    <circle cx="1060" cy="140" r="2" opacity="0.7"/>
+    <circle cx="1290" cy="80" r="1.5" opacity="0.5"/>
+    <circle cx="1500" cy="170" r="2" opacity="0.6"/>
+    <circle cx="1760" cy="100" r="1.5" opacity="0.5"/>
+    <circle cx="300" cy="260" r="1.5" opacity="0.4"/>
+    <circle cx="1640" cy="280" r="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Film strip -->
+  <g transform="rotate(-8 960 600)">
+    <rect x="-200" y="520" width="2320" height="140" fill="#1c1826"/>
+    <rect x="-200" y="520" width="2320" height="140" fill="url(#holes)"/>
+    <g fill="#2a2338" stroke="#3a3150" stroke-width="2">
+      <rect x="-120" y="552" width="200" height="76" rx="4"/>
+      <rect x="120" y="552" width="200" height="76" rx="4"/>
+      <rect x="360" y="552" width="200" height="76" rx="4"/>
+      <rect x="600" y="552" width="200" height="76" rx="4"/>
+      <rect x="840" y="552" width="200" height="76" rx="4"/>
+      <rect x="1080" y="552" width="200" height="76" rx="4"/>
+      <rect x="1320" y="552" width="200" height="76" rx="4"/>
+      <rect x="1560" y="552" width="200" height="76" rx="4"/>
+      <rect x="1800" y="552" width="200" height="76" rx="4"/>
+    </g>
+    <rect x="840" y="552" width="200" height="76" rx="4" fill="#e50914" opacity="0.5"/>
+  </g>
+
+  <!-- Bottom fade so content below blends in -->
+  <rect width="1920" height="800" fill="url(#fade)"/>
+</svg>
