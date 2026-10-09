@@ -30,14 +30,63 @@ function createCard(movieList) {
         <p>Year: ${movie.year}</p>
         <p>Rating: ${movie.rating}</p>
         <p>Genre: ${movie.genre}</p>
+        <button class="btn event-btn"> Click for magic </button>
         <button class="btn remove-btn"> Remove </button>
         `;
 
         const removeBtn = card.querySelector(".remove-btn");
         removeBtn.addEventListener("click", removeCard);
 
+        const eventBtn = card.querySelector(".event-btn");
+        eventBtn.addEventListener("click", specialEvent);
+
         container.appendChild(card);
     });
+}
+
+function randomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function specialEvent(event) {
+    /*const number1 = Math.floor(Math.random() * 100);
+    const number2 = Math.floor(Math.random() * 100);
+    const signs = ["+", "-", "x", "/"];
+    const sign = signs[number1 % signs.length];
+
+    let answer;
+    switch (sign) {
+        case "+":
+            answer = number1 + number2;
+            break;
+        case "-":
+            answer = number1 - number2;
+            break;
+
+        case "x":
+            answer = number1 * number2;
+            break;
+        
+        case "/":
+            answer = Number((number1 / number2).toFixed(2));
+            break;
+    }
+
+
+    const guess = prompt("What is " + number1 + " " + sign + " " + number2 + " ?" );
+
+    if (guess === answer) {
+        alert("Correct");
+    } else {
+        alert("Wrong, answer was " + answer);
+    }
+    */
+    event.target.parentElement.style.backgroundColor = randomColor();
+
+
 }
 
 function removeCard(event) {
