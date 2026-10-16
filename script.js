@@ -131,8 +131,8 @@ function rendergenreOptions() {
     });
 }
 
-function filterMovies() {
-    const selectedGenre = genreFilter.value;
+function filterMovies(event) {
+    const selectedGenre = event.target.value;
 
     if (selectedGenre === "all") {
         createCard(movies);
