@@ -1,4 +1,4 @@
-const movies = [
+let movies = [
   { name: "The Shawshank Redemption", year: 1994, rating: 9.3, genre: "Drama" },
   { name: "The Godfather", year: 1972, rating: 9.2, genre: "Crime" },
   { name: "The Dark Knight", year: 2008, rating: 9.0, genre: "Action" },
@@ -35,7 +35,7 @@ function createCard(movieList) {
         `;
 
         const removeBtn = card.querySelector(".remove-btn");
-        removeBtn.addEventListener("click", removeCard);
+        removeBtn.addEventListener("click", event => removeCard(event, movie));
 
         const eventBtn = card.querySelector(".event-btn");
         eventBtn.addEventListener("click", specialEvent);
@@ -52,45 +52,13 @@ function randomColor() {
 }
 
 function specialEvent(event) {
-    /*const number1 = Math.floor(Math.random() * 100);
-    const number2 = Math.floor(Math.random() * 100);
-    const signs = ["+", "-", "x", "/"];
-    const sign = signs[number1 % signs.length];
-
-    let answer;
-    switch (sign) {
-        case "+":
-            answer = number1 + number2;
-            break;
-        case "-":
-            answer = number1 - number2;
-            break;
-
-        case "x":
-            answer = number1 * number2;
-            break;
-        
-        case "/":
-            answer = Number((number1 / number2).toFixed(2));
-            break;
-    }
-
-
-    const guess = prompt("What is " + number1 + " " + sign + " " + number2 + " ?" );
-
-    if (guess === answer) {
-        alert("Correct");
-    } else {
-        alert("Wrong, answer was " + answer);
-    }
-    */
     event.target.parentElement.style.backgroundColor = randomColor();
-
-
 }
 
-function removeCard(event) {
+function removeCard(event, movieToRemove) {
+    movies = movies.filter(movie => movie !== movieToRemove);
     event.target.parentElement.remove();
+    rendergenreOptions();
 }
 
 function addMovie(event) {
